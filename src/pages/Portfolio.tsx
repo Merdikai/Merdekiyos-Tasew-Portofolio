@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Portfolio.css";
 
 // Types and Interfaces
-interface NavButtonProps {
-  onClick: () => void;
-  children: React.ReactNode;
-}
+
 
 interface ContactItem {
   icon: string;
