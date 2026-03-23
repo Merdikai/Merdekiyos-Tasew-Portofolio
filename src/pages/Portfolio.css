@@ -10,6 +10,7 @@
   box-sizing: border-box;
 }
 
+
 :root {
   /* Neon Black Color System */
   --neon-black: #0a0a0f;
@@ -677,7 +678,7 @@ body {
   border: 1px solid rgba(var(--neon-cyan-rgb), 0.2);
 }
 
-.education-institution {
+.education-degree {
   font-size: var(--font-size-2xl);
   font-weight: 600;
   margin-bottom: var(--space-xs);
@@ -690,7 +691,7 @@ body {
   margin-bottom: var(--space-xs);
 }
 
-.education-degree {
+.education-institution {
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
   margin-bottom: var(--space-lg);

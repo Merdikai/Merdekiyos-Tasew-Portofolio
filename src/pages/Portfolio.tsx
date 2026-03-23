@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./Portfolio.css";
 
 // Types and Interfaces
-
-
 interface ContactItem {
   icon: string;
   label: string;
   value: string;
+  url?: string;
 }
 
 interface SkillCategory {
@@ -47,32 +46,32 @@ const Header: React.FC = () => {
     const handleScroll = (): void => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string): void => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const navItems: Array<{ id: string; label: string }> = [
-    { id: 'home', label: 'Home' },
-    { id: 'contact', label: 'Contact' },
-    { id: 'objective', label: 'About' },
-    { id: 'education', label: 'Education' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'languages', label: 'Languages' },
-    { id: 'certificate', label: 'Certificate' },
-    { id: 'projects', label: 'Projects' },
+    { id: "home", label: "Home" },
+    { id: "contact", label: "Contact" },
+    { id: "objective", label: "Profile" },
+    { id: "education", label: "Education" },
+    { id: "skills", label: "Skills" },
+    { id: "languages", label: "Languages" },
+    { id: "certificate", label: "Certificate" },
+    { id: "projects", label: "Projects" },
   ];
 
   return (
-    <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
       <nav className="nav">
-        <button onClick={() => scrollToSection('home')} className="nav-logo">
+        <button onClick={() => scrollToSection("home")} className="nav-logo">
           MT<span className="nav-logo-dot">.</span>
         </button>
         <div className="nav-links">
@@ -94,7 +93,7 @@ const Header: React.FC = () => {
 // Footer Component
 const Footer: React.FC = () => {
   const currentYear: number = new Date().getFullYear();
-  
+
   return (
     <footer className="site-footer">
       <div className="footer-content">
@@ -108,59 +107,80 @@ const Footer: React.FC = () => {
 // Main Portfolio Component
 const Portfolio: React.FC = () => {
   // Constants
-  const certificateUrl: string = "https://www.udacity.com/certificate/e/e4923d28-1e3f-11f1-9565-cfb6fd9b9a45";
+  const certificateUrl: string =
+    "https://www.udacity.com/certificate/e/e4923d28-1e3f-11f1-9565-cfb6fd9b9a45";
   const projectUrl: string = "https://github.com/Merdikai/HIDS";
 
   // Data
   const contactInfo: ContactItem[] = [
-    { icon: '👤', label: 'Name', value: 'Merdekiyos Tasew' },
-    { icon: '📍', label: 'Location', value: 'Addis Ababa, Ethiopia' },
-    { icon: '📱', label: 'Phone', value: '0953913418' },
-    { icon: '📧', label: 'Email', value: 'merdekiyostasew@gmail.com' },
+    { icon: "📍", label: "Location", value: "Addis Ababa, Ethiopia" },
+    { icon: "📱", label: "Phone", value: "+251953913418", url: "tel:+251953913418" },
+    {
+      icon: "📧",
+      label: "Email",
+      value: "merdekiyostasew@gmail.com",
+      url: "mailto:merdekiyostasew@gmail.com",
+    },
+    { icon: "🐙", label: "GitHub", value: "Merdikai", url: "https://github.com/Merdikai" },
+    {
+      icon: "💼",
+      label: "LinkedIn",
+      value: "Merdekiyos Tasew",
+      url: "https://www.linkedin.com/in/merdekiyos-tasew",
+    },
+    { icon: "✈️", label: "Telegram", value: "@Merdi27", url: "https://t.me/Merdi27" },
   ];
 
   const skillCategories: SkillCategory[] = [
     {
-      title: 'Frontend',
-      skills: ['HTML5', 'CSS3', 'JavaScript', 'React', 'TypeScript', 'Responsive Design']
+      title: "Frontend Development",
+      skills: ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Responsive Design"],
     },
     {
-      title: 'Backend',
-      skills: ['Java', 'C++', 'PHP', 'Node.js', 'RESTful APIs', 'MySQL']
+      title: "Frontend Development",
+      skills: ["Java", "C++", "PHP", "Node.js", "RESTful APIs", "MySQL"],
     },
     {
-      title: 'Security & Tools',
-      skills: ['Security Principles', 'Authentication', 'Git', 'GitHub', 'VS Code', 'Database Security']
+      title: "Security & Tools",
+      skills: ["Security Principles", "Authentication", "Git", "GitHub", "VS Code", "Database Security"],
     },
     {
-      title: 'Soft Skills',
-      skills: ['Quick Learner', 'Team Collaboration', 'Communication', 'Problem Solving', 'Time Management', 'Adaptability']
-    }
+      title: "Soft Skills",
+      skills: [
+        "Quick Learner",
+        "Team Collaboration",
+        "Communication",
+        "Problem Solving",
+        "Time Management",
+        "Adaptability",
+      ],
+    },
   ];
 
   const languages: Language[] = [
-    { name: 'Amharic', level: 'Native', proficiency: 100 },
-    { name: 'English', level: 'Fluent', proficiency: 95 },
+    { name: "Amharic", level: "Native", proficiency: 100 },
+    { name: "English", level: "Fluent", proficiency: 95 },
   ];
 
   const projects: Project[] = [
     {
-      title: 'HIDS',
-      fullTitle: 'Host-based Intrusion Detection System',
-      description: 'A Host-based Intrusion Detection System that monitors and analyzes system activities for suspicious behavior and potential security threats in real-time.',
-      technologies: ['PHP', 'MySQL', 'Security'],
+      title: "HIDS",
+      fullTitle: "Host-based Intrusion Detection System",
+      description:
+        "A Host-based Intrusion Detection System that monitors and analyzes system activities for suspicious behavior and potential security threats in real-time.",
+      technologies: ["PHP", "MySQL"],
       githubUrl: projectUrl,
-      featured: true
-    }
+      featured: true,
+    },
   ];
 
   const certificate: Certificate = {
-    title: 'Verified Certificate Of Nanodegree Program Completion',
-    subtitle: 'Programming Fundamentals',
-    recipient: 'Merdekiyos Tasew',
-    date: 'March 13, 2026',
+    title: "Verified Certificate Of Nanodegree Program Completion",
+    subtitle: "Programming Fundamentals",
+    recipient: "Merdekiyos Tasew",
+    date: "March 13, 2026",
     verificationUrl: certificateUrl,
-    issuer: 'Udacity'
+    issuer: "Udacity",
   };
 
   return (
@@ -170,25 +190,30 @@ const Portfolio: React.FC = () => {
       <main className="content">
         {/* Home Section */}
         <section id="home" className="section-home section">
-          <h2 className="section-title">WELCOME</h2>
+          <h1 className="section-title">Full Stack | App Developer</h1>
           <div className="hero-content">
             <h1 className="hero-title">
               Merdekiyos <span className="hero-title-accent">Tasew</span>
             </h1>
-            <p className="hero-subtitle">Computer Science Student & Software Developer</p>
+            <p className="hero-subtitle">Computer Science Graduat & Software Developer</p>
             <p className="hero-description">
-              Passionate about building innovative solutions and exploring the frontiers of technology.
-              Final year student at St. Mary's University College.
+              I am a Full Stack Developer passionate about building scalable web and mobile applications using modern 
+              technologies. Skilled in designing clean architectures, implementing secure systems, and optimizing 
+              performance, with a focus on delivering practical solutions that make an impact in real-world applications.
             </p>
             <div className="hero-cta">
-              <button 
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} 
+              <button
+                onClick={() =>
+                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="cta-button primary"
               >
                 View My Work
               </button>
-              <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} 
+              <button
+                onClick={() =>
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="cta-button secondary"
               >
                 Get In Touch
@@ -201,30 +226,44 @@ const Portfolio: React.FC = () => {
         <section id="contact" className="section-contact section">
           <h2 className="section-title">CONTACT</h2>
           <div className="contact-grid">
-            {contactInfo.map((item, index) => (
-              <div key={index} className="contact-item">
-                <span className="contact-icon">{item.icon}</span>
-                <div className="contact-details">
-                  <span className="contact-label">{item.label}</span>
-                  <span className="contact-value">{item.value}</span>
+            {contactInfo.map((item, index) =>
+              item.url ? (
+                <a
+                  key={index}
+                  href={item.url}
+                  target={item.url.startsWith("http") ? "_blank" : undefined}
+                  rel={item.url.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="contact-item"
+                >
+                  <span className="contact-icon">{item.icon}</span>
+                  <div className="contact-details">
+                    <span className="contact-label">{item.label}</span>
+                    <span className="contact-value">{item.value}</span>
+                  </div>
+                </a>
+              ) : (
+                <div key={index} className="contact-item">
+                  <span className="contact-icon">{item.icon}</span>
+                  <div className="contact-details">
+                    <span className="contact-label">{item.label}</span>
+                    <span className="contact-value">{item.value}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </section>
 
         {/* Objective Section */}
         <section id="objective" className="section-objective section">
-          <h2 className="section-title">OBJECTIVE</h2>
+          <h2 className="section-title">Profile</h2>
           <div className="objective-card">
             <p className="objective-text">
-              Motivated and ambitious final year Computer Science student with a strong
-              foundation in software development, problem solving, and modern
-              programming tools. Actively seeking internship opportunity to apply
-              academic knowledge in a real world environment, contribute meaningfully to
-              innovative projects, and grow through collaboration with experienced
-              professionals. Committed to continuous learning, technical excellence, and
-              delivering high-quality results in a fast-paced tech-driven setting.
+              I am a Full Stack Developer passionate about building 
+              scalable web and mobile applications using modern technologies.
+               Skilled in designing clean architectures, 
+               implementing secure systems, and optimizing performance, 
+               with a focus on delivering practical solutions that make an impact in real-world applications.
             </p>
           </div>
         </section>
@@ -233,14 +272,14 @@ const Portfolio: React.FC = () => {
         <section id="education" className="section-education section">
           <h2 className="section-title">EDUCATION</h2>
           <div className="education-card">
-            <div className="education-year">2022 — 2026</div>
+            <h2 className="education-degree">Bachelor of Science in Computer Science</h2>
             <h3 className="education-institution">St. Mary's University College</h3>
+             <div className="education-year">2022 — 2026</div>
             <p className="education-location">Addis Ababa, Ethiopia</p>
-            <p className="education-degree">Bachelor of Science in Computer Science</p>
+            
             <div className="education-highlights">
-              <span className="highlight-badge">Current GPA: 3.8/4.0</span>
-              <span className="highlight-badge">Dean's List</span>
-              <span className="highlight-badge">Merit Scholarship</span>
+              {/* <span className="highlight-badge">Dean's List</span> */}
+             {/* <span className="highlight-badge">Merit Scholarship</span> */}
             </div>
           </div>
         </section>
@@ -275,8 +314,8 @@ const Portfolio: React.FC = () => {
                   <span className="language-level">{language.level}</span>
                 </div>
                 <div className="language-proficiency">
-                  <div 
-                    className="proficiency-bar" 
+                  <div
+                    className="proficiency-bar"
                     style={{ width: `${language.proficiency}%` }}
                     role="progressbar"
                     aria-valuenow={language.proficiency}
@@ -296,8 +335,15 @@ const Portfolio: React.FC = () => {
           <h2 className="section-title">CERTIFICATE</h2>
           <div className="certificate-card">
             <div className="certificate-badge" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z" fill="currentColor"/>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"
+                  fill="currentColor"
+                />
               </svg>
             </div>
             <div className="certificate-content">
@@ -312,15 +358,21 @@ const Portfolio: React.FC = () => {
                 <span className="verification-badge">
                   ✓ Verified by {certificate.issuer}
                 </span>
-                <a 
-                  href={certificate.verificationUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={certificate.verificationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="certificate-link"
                 >
                   View Certificate
-                  <svg className="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M7 17L17 7M17 7H8M17 7V16"/>
+                  <svg
+                    className="link-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M7 17L17 7M17 7H8M17 7V16" />
                   </svg>
                 </a>
               </div>
@@ -334,28 +386,34 @@ const Portfolio: React.FC = () => {
           <div className="projects-grid">
             {projects.map((project, index) => (
               <div key={index} className="project-card">
-                {project.featured && (
-                  <div className="project-badge">Featured Project</div>
-                )}
+                {project.featured && <div className="project-badge">Featured Project</div>}
                 <div className="project-header">
                   <h3 className="project-title">{project.title}</h3>
                 </div>
                 <p className="project-full-title">{project.fullTitle}</p>
                 <div className="project-tech">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">{tech}</span>
+                    <span key={techIndex} className="tech-tag">
+                      {tech}
+                    </span>
                   ))}
                 </div>
                 <p className="project-description">{project.description}</p>
-                <a 
-                  href={project.githubUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="project-link"
                 >
                   <span>View on GitHub</span>
-                  <svg className="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  <svg
+                    className="link-arrow"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </a>
               </div>
