@@ -115,8 +115,8 @@ const experiences: Experience[] = [
     location: "Remote",
     description:
       "Delivered custom websites for local businesses, handling everything from design to deployment.",
-    technologies: ["React", "PHP", "MySQL", /*"SEO"*/, "TypeScript", "Supabase", "Vite", "Bootstrap", "Framer Motion", "Vercel"],
-    achievements: [
+    technologies: ["React", "PHP", "MySQL", /*"SEO"*/ "TypeScript", "Supabase", "Vite", "Bootstrap", "Framer Motion", "Vercel"],
+     achievements: [
       "Built 3+ responsive websites, increasing clients’ online presence.",
       "Implemented secure authentication and database encryption.",
     ],
