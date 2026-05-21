@@ -87,43 +87,65 @@ const certificates: Certificate[] = [
 ];
 
 const experiences: Experience[] = [
-  {
-    role: "Full Stack Developer Intern",
-    company: "TechSphere Solutions",
-    period: "June 2025 – Present",
-    location: "Addis Ababa, Ethiopia",
+  
+    {
+    role: "Full Stack Developer & SaaS Founder",
+    company: "Ezer Nail Salon",
+    period: "2025 - 2026",
+    location: "Remote",
     description:
-      "Worked on internal tools and client projects, focusing on modernising legacy systems and integrating third‑party services.",
-    technologies: ["React", "Node.js", "PHP", "MySQL", "Docker"],
+      "Architected and built a multi-tenant nail salon booking SaaS platform, handling everything from database design to deployment. The platform serves multiple nail salons with company-specific branding, admin dashboards, and customer booking systems.",
+    technologies: ["React", "TypeScript", "Supabase", "Vite", "Bootstrap", "Framer Motion", "Vercel"],
     achievements: [
-      "Developed and maintained 3 internal tools, improving team productivity by 25%.",
-      "Integrated payment and SMS APIs, reducing manual processing time by 40%.",
-      "Redesigned a legacy PHP dashboard into a React SPA, cutting load times by 60%.",
+      "Built a complete multi-tenant SaaS platform supporting multiple nail salons with isolated data, custom branding, and company-specific admin panels.",
+      "Implemented role-based authentication (Super Admin, Company Admin, Customer) .",
+      "Designed responsive, glassmorphism UI with custom CSS animations and mobile-first design.",
+      "Integrated Supabase for real-time database, authentication, and file storage with image upload support.",
+      "Developed loyalty program tracking, booking management with status workflows (pending/confirmed/completed/cancelled).",
+      "Created company settings page allowing each salon to customize branding, contact info, and page content.",
+      "Deployed on Vercel with CI/CD pipeline and custom domain support ready.",
     ],
-    github: "https://github.com/Merdikai",
-  },
+    github: "https://github.com/Merdikai/nail-booking-app",
+    demo: "https://nail-booking-app-alpha.vercel.app",
+},
   {
     role: "Freelance Web Developer",
     company: "Self‑Employed",
-    period: "Jan 2024 – May 2025",
+    period: "2025 - Present",
     location: "Remote",
     description:
       "Delivered custom websites for local businesses, handling everything from design to deployment.",
-    technologies: ["React", "PHP", "MySQL", "SEO"],
+    technologies: ["React", "PHP", "MySQL", /*"SEO"*/, "TypeScript", "Supabase", "Vite", "Bootstrap", "Framer Motion", "Vercel"],
     achievements: [
-      "Built 5+ responsive websites, increasing clients’ online presence.",
+      "Built 3+ responsive websites, increasing clients’ online presence.",
       "Implemented secure authentication and database encryption.",
-      "Achieved 90+ Lighthouse scores for performance and accessibility.",
     ],
     github: "https://github.com/Merdikai",
     demo: "https://merdekiyos.vercel.app",
+  },
+
+  {
+    role: "Intern",
+    company: "PEDS-Professional Electronic Data Systems PLC",
+    period: "06/2025 – 01/2026",
+    location: "Addis Ababa, Ethiopia",
+    description:
+      "Worked on internal tools and client projects, focusing on modernising legacy systems and integrating third‑party services.",
+    technologies: ["Java","MySQL"],
+    achievements: [
+      "Completed an internship providing support in business process consulting and ITstrategy initiatives",
+      "contributing to software implementation and system integrationtasks",
+      "Delivering technical support andtroubleshooting assistance",
+  
+    ],
+    github: "https://github.com/Merdikai",
   },
 ];
 
 const mainSkills: MainSkill[] = [
   {
     category: "Frontend Development",
-    percentage: 90,
+    percentage: 85,
     color: "#6366f1",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="24" height="24">
@@ -134,7 +156,7 @@ const mainSkills: MainSkill[] = [
   },
   {
     category: "Backend Development",
-    percentage: 82,
+    percentage: 78,
     color: "#8b5cf6",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="24" height="24">
@@ -142,7 +164,7 @@ const mainSkills: MainSkill[] = [
         <path d="M8 21h8M12 17v4" />
       </svg>
     ),
-    tools: ["Node.js", "PHP", "Java", "MySQL", "MongoDB", "REST APIs"],
+    tools: ["Node.js", "PHP", "Java", "MySQL","Supabase", /*"MongoDB(learning)"*/ "REST APIs"],
   },
   {
     category: "Mobile Development",
@@ -165,7 +187,7 @@ const mainSkills: MainSkill[] = [
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
       </svg>
     ),
-    tools: ["Docker", "Git", "CI/CD Basics", "Vercel", "AWS (learning)"],
+    tools: [ "Git","Supabase", "Vercel", "AWS (learning)","CI/CD"],
   },
 ];
 
@@ -503,9 +525,7 @@ const Portfolio: React.FC = () => {
                 <span className="education-location">Addis Ababa, Ethiopia</span>
               </div>
               <div className="education-highlights">
-                <span>CGPA: 3.5/4.0</span>
-                <span>Dean's List</span>
-                <span>Active in Tech Clubs</span>
+                <span>Graduated with a strong foundation in Computer Science, focusing on software engineering, algorithms, and data structures.</span>
               </div>
             </div>
           </div>
