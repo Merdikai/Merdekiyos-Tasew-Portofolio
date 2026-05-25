@@ -65,7 +65,7 @@ const projects: Project[] = [
       "A modern, futuristic portfolio website with neon aesthetics, smooth animations, and glass‑morphism design.",
     technologies: ["React", "TypeScript", "Framer Motion"],
     githubUrl: "https://github.com/Merdikai/Merdekiyos-Tasew-Portofolio",
-    liveUrl: "https://merdekiyos.vercel.app",
+    liveUrl: "https://merdekiyos-tasew-portofolio.vercel.app/",
   },
 ];
 
