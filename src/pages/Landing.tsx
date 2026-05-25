@@ -61,17 +61,17 @@ const Landing = () => {
           {/* Stats */}
           <div className="stats-row">
             <div className="stat-item">
-              <span className="stat-number">2+</span>
+              <span className="stat-number">1+</span>
               <span className="stat-label">Years Experience</span>
             </div>
             <div className="stat-divider" />
             <div className="stat-item">
-              <span className="stat-number">3+</span>
+              <span className="stat-number">2+</span>
               <span className="stat-label">Certifications</span>
             </div>
             <div className="stat-divider" />
             <div className="stat-item">
-              <span className="stat-number">5+</span>
+              <span className="stat-number">4+</span>
               <span className="stat-label">Projects</span>
             </div>
           </div>

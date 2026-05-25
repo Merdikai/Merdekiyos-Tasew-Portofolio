@@ -121,7 +121,7 @@ const experiences: Experience[] = [
       "Implemented secure authentication and database encryption.",
     ],
     github: "https://github.com/Merdikai",
-    demo: "https://merdekiyos.vercel.app",
+    demo: "https://merdekiyos-tasew-portofolio.vercel.app/",
   },
 
   {
@@ -164,7 +164,7 @@ const mainSkills: MainSkill[] = [
         <path d="M8 21h8M12 17v4" />
       </svg>
     ),
-    tools: ["Node.js", "PHP", "Java", "MySQL","Supabase", /*"MongoDB(learning)"*/ "REST APIs"],
+    tools: ["Node.js", "PHP", "Java", "MySQL","Supabase", /*"MongoDB(learning)"*/ "REST APIs(learning)"],
   },
   {
     category: "Mobile Development",
@@ -337,17 +337,17 @@ const Portfolio: React.FC = () => {
 
             <div className="hero-stats">
               <div className="stat-card">
-                <span className="stat-number">2+</span>
+                <span className="stat-number">1+</span>
                 <span className="stat-label">Years Coding</span>
               </div>
               <div className="stat-divider-vertical" />
               <div className="stat-card">
-                <span className="stat-number">3+</span>
+                <span className="stat-number">2+</span>
                 <span className="stat-label">Certificates</span>
               </div>
               <div className="stat-divider-vertical" />
               <div className="stat-card">
-                <span className="stat-number">5+</span>
+                <span className="stat-number">4+</span>
                 <span className="stat-label">Projects</span>
               </div>
             </div>
