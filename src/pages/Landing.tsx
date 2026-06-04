@@ -17,101 +17,94 @@ const Landing = () => {
 
   return (
     <div className="landing">
-      <div className="landing-bg-grid" />
-      <div className="landing-particles" />
-      
+      {/* Background */}
+      <div className="landing-bg">
+        <div className="landing-bg-lines" />
+        <div className="landing-bg-orb landing-bg-orb--1" />
+        <div className="landing-bg-orb landing-bg-orb--2" />
+      </div>
+
       <div className="landing-content">
         <div className="landing-card">
-          {/* Status Badge */}
-          <div className="status-badge">
-            <span className="status-dot" />
+
+          {/* Eyebrow */}
+          <div className="landing-eyebrow">
+            <span className="eyebrow-dot" />
             Available for Work
           </div>
 
           {/* Avatar */}
-          <div className="avatar-container">
+          <div className="landing-avatar-wrap">
             {!imageError ? (
-              <img 
-                src="/merdi.jpg" 
-                alt="Merdekiyos Tasew" 
-                className="avatar"
+              <img
+                src="/merdi.jpg"
+                alt="Merdekiyos Tasew"
+                className="landing-avatar"
                 onError={() => setImageError(true)}
               />
             ) : (
-              <div className="avatar-fallback">
-                <span>MT</span>
-              </div>
+              <div className="landing-avatar-fallback">MT</div>
             )}
-            <div className="avatar-ring" />
+            <div className="landing-avatar-ring" />
+            <div className="landing-avatar-ring landing-avatar-ring--2" />
           </div>
 
-          {/* Name & Title */}
+          {/* Name */}
           <h1 className="landing-name">
-            Merdekiyos <span className="name-highlight">Tasew</span>
+            Merdekiyos <em>Tasew</em>
           </h1>
-          
-          <p className="landing-title">
-            Full‑Stack Developer & App Developer
-          </p>
 
-          <p className="landing-location">
-            📍 Addis Ababa, Ethiopia
-          </p>
+          <p className="landing-title">Full‑Stack &amp; App Developer</p>
+
+          <div className="landing-divider" />
 
           {/* Stats */}
-          <div className="stats-row">
-            <div className="stat-item">
-              <span className="stat-number">1+</span>
-              <span className="stat-label">Years Experience</span>
+          <div className="landing-stats">
+            <div className="landing-stat">
+              <span className="landing-stat-num">1+</span>
+              <span className="landing-stat-label">Years Exp.</span>
             </div>
-            <div className="stat-divider" />
-            <div className="stat-item">
-              <span className="stat-number">2+</span>
-              <span className="stat-label">Certifications</span>
+            <div className="landing-stat-sep" />
+            <div className="landing-stat">
+              <span className="landing-stat-num">4+</span>
+              <span className="landing-stat-label">Projects</span>
             </div>
-            <div className="stat-divider" />
-            <div className="stat-item">
-              <span className="stat-number">4+</span>
-              <span className="stat-label">Projects</span>
+            <div className="landing-stat-sep" />
+            <div className="landing-stat">
+              <span className="landing-stat-num">2+</span>
+              <span className="landing-stat-label">Certificates</span>
             </div>
           </div>
 
           {/* Bio */}
           <p className="landing-bio">
-            Building innovative solutions with modern technologies. 
-            Passionate about cybersecurity and software development.
+            Building innovative solutions with modern technologies.
+            Passionate about cybersecurity, clean architecture, and creating
+            real‑world impact through thoughtful software.
           </p>
 
-          {/* Action Buttons */}
+          {/* Actions */}
           <div className="landing-actions">
-            <button 
-              className="btn btn-primary"
-              onClick={() => navigate("/portfolio")}
-            >
+            <button className="btn-gold" onClick={() => navigate("/portfolio")}>
               <span>View Portfolio</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-            
-            <button 
-              className="btn btn-outline"
-              onClick={handleDownloadCV}
-            >
-              <span>Download CV</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <button className="btn-ghost" onClick={handleDownloadCV}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{width:16,height:16}}>
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
               </svg>
+              <span>Download CV</span>
             </button>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="scroll-hint">
-            <span>Scroll to explore</span>
-            <div className="scroll-mouse">
-              <div className="scroll-wheel" />
-            </div>
+          {/* Scroll hint */}
+          <div className="landing-scroll">
+            <div className="landing-scroll-line" />
+            <span>Scroll</span>
           </div>
+
         </div>
       </div>
     </div>
