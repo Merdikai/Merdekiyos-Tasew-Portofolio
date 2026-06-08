@@ -41,14 +41,17 @@ interface Skill {
 
 /* ── Data ── */
 const projects: Project[] = [
+
   {
-    title: "HIDS — Hospital Information Dissemination System",
+    title: "Church Management System",
     description:
-      "Multi-role platform supporting Admin, Medical Director, Doctors, and Patients for efficient information sharing and communication.",
-    technologies: ["PHP", "MySQL", "Security"],
-    githubUrl: "https://github.com/Merdikai/HIDS",
+      "Full-featured church management platform with role-based dashboards, team management, bilingual support (English/Amharic), prayer requests, event timelines, and dynamic public website.",
+    technologies: ["React", "TypeScript", "Supabase", "Vite", "i18next", "CSS3"],
+    githubUrl: "https://github.com/Merdikai/church-management",
+    liveUrl: "https://church-management-wqyb.vercel.app",
     featured: true,
-  },
+},
+  
   {
     title: "Nail Booking App",
     description:
@@ -56,6 +59,14 @@ const projects: Project[] = [
     technologies: ["React", "TypeScript", "Supabase", "Vite"],
     githubUrl: "https://github.com/Merdikai/nail-booking-app",
     liveUrl: "https://nail-booking-app-alpha.vercel.app/",
+  },
+  {
+    title: "HIDS — Hospital Information Dissemination System",
+    description:
+      "Multi-role platform supporting Admin, Medical Director, Doctors, and Patients for efficient information sharing and communication.",
+    technologies: ["PHP", "MySQL", "Security"],
+    githubUrl: "https://github.com/Merdikai/HIDS",
+    
   },
   {
     title: "Personal Portfolio",
@@ -84,7 +95,7 @@ const certificates: Certificate[] = [
 
 const experiences: Experience[] = [
   {
-    role: "Full Stack Developer & SaaS Founder",
+    role: "Full Stack Developer & SaaS Developer",
     company: "Ezer Nail Salon",
     period: "2025 — 2026",
     location: "Remote",
@@ -131,6 +142,28 @@ const experiences: Experience[] = [
     ],
     github: "https://github.com/Merdikai",
   },
+
+  {
+    role: "Full Stack Developer",
+    company: "Bethel Anfo EECMY Church",
+    period: "2026",
+    location: "Addis Ababa, Ethiopia",
+    description:
+      "Designed and developed a comprehensive church management web application with role-based dashboards, team management, and bilingual support.",
+    technologies: ["React", "TypeScript", "Supabase", "Vite", "i18next", "CSS3", "Vercel"],
+    achievements: [
+      "Built a full-featured church management platform with 25+ pages serving 3 user roles (Admin, Team Leader, Member).",
+      "Implemented semi-bilingual support (English/Amharic) with persistent language preference and 100+ translation keys.",
+      "Designed pro-level responsive UI with custom SVG icons, glassmorphism effects, skeleton loading, and animated transitions across all pages.",
+      "Developed team management system with join requests, approval workflows, and role-based access control using Supabase RLS policies.",
+      "Built public-facing website with dynamic content sections (About, Contact, Donation) editable via admin panel.",
+      "Integrated Supabase for authentication, real-time database, file storage, and row-level security with 12+ database tables.",
+      "Created prayer request system with public/private visibility, announcement feeds, event timelines, and notification center.",
+      "Deployed on Vercel with CI/CD pipeline, environment variables, and production-grade error handling.",
+    ],
+    github: "https://github.com/Merdikai/church-management",
+    demo: "https://church-management-wqyb.vercel.app",
+},
 ];
 
 const skills: Skill[] = [
@@ -138,7 +171,7 @@ const skills: Skill[] = [
     category: "Frontend Development",
     percentage: 85,
     color: "#c4a369",
-    tools: ["React", "TypeScript", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
+    tools: ["React", "TypeScript", "Node.js", "Tailwind CSS", "HTML5", "CSS3"],
   },
   {
     category: "Backend Development",
@@ -150,7 +183,7 @@ const skills: Skill[] = [
     category: "Mobile Development",
     percentage: 65,
     color: "#7a9c8a",
-    tools: ["React Native", "Flutter (learning)", "Android Basics"],
+    tools: [ "Flutter (learning)", "Android Basics"],
   },
   {
     category: "DevOps & Cloud",
