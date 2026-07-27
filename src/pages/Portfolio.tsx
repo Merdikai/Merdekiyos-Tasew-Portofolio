@@ -86,6 +86,12 @@ const certificates: Certificate[] = [
     verificationUrl: "https://www.udacity.com/certificate/e/e4923d28-1e3f-11f1-9565-cfb6fd9b9a45",
   },
   {
+    title: "Fundamentals of DevOps On AWS",
+    issuer: "Simplilearn",
+    date: "July 14, 2026",
+    verificationUrl: "https://simpli-web.app.link/e/2AGyGEzu74b",
+  },
+  {
     title: "Global Chapters — Ethiopia — Data Fundamentals",
     issuer: "Udacity",
     date: "March 20, 2026",
@@ -171,13 +177,13 @@ const skills: Skill[] = [
     category: "Frontend Development",
     percentage: 85,
     color: "#c4a369",
-    tools: ["React", "TypeScript", "Node.js", "Tailwind CSS", "HTML5", "CSS3"],
+    tools: ["React", "TypeScript", "Node.js", "Tailwind CSS", "HTML5", "CSS3", "Vite","Angular (learning)"],
   },
   {
     category: "Backend Development",
-    percentage: 78,
+    percentage: 75,
     color: "#c97a7a",
-    tools: ["Node.js", "PHP", "Java", "MySQL", "Supabase", "REST APIs"],
+    tools: ["Node.js", "C#", ".Net Core","Supabase", "PHP", "Java", "MySQL", "REST APIs"],
   },
   {
     category: "Mobile Development",
@@ -189,7 +195,7 @@ const skills: Skill[] = [
     category: "DevOps & Cloud",
     percentage: 55,
     color: "#a369c4",
-    tools: ["Git", "Supabase", "Vercel", "AWS (learning)", "CI/CD"],
+    tools: ["Git", "Supabase", "Vercel", "AWS (learning)"],
   },
 ];
 
@@ -360,14 +366,14 @@ while (true) {
             </div>
 
             <p className="hero-description">
-              I build secure, scalable applications with modern technologies.
-              Passionate about clean architecture, cybersecurity, and creating
+              I build secure, scalable websites with modern technologies.
+              Passionate about clean architecture, security, and creating
               real-world impact through innovative software.
             </p>
 
             <div className="hero-stats">
               <div>
-                <span className="hero-stat-num">1+</span>
+                <span className="hero-stat-num">2+</span>
                 <span className="hero-stat-label">Years Coding</span>
               </div>
               <div className="hero-stat-sep" />
@@ -605,6 +611,28 @@ while (true) {
                 engineering, algorithms, and data structures.
               </p>
             </div>
+            
+          </div>
+          <div className="education-card">
+            <div className="education-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="28" height="28">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/>
+              </svg>
+            </div>
+            <div>
+              <h3 className="education-degree">Full-stack Development</h3>
+              <p className="education-school">Addis Ababa University (Qiyas)</p>
+              <div className="education-meta">
+                <span>2026 — present</span>
+                <span>Addis Ababa, Ethiopia</span>
+              </div>
+              <p className="education-note">
+                Currently pursuing advanced studies in full-stack development to enhance my skills and
+                learn more about the latest technologies and best practices in full-stack development.
+              </p>
+            </div>
+            
           </div>
         </section>
 

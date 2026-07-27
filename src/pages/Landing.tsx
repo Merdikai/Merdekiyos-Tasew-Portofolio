@@ -79,7 +79,7 @@ const Landing = () => {
           {/* Bio */}
           <p className="landing-bio">
             Building innovative solutions with modern technologies.
-            Passionate about cybersecurity, clean architecture, and creating
+            Passionate about security, clean architecture, and creating
             real‑world impact through thoughtful software.
           </p>
 
