@@ -1,0 +1,279 @@
+/* ===================================================
+   3D BACKGROUND & LUMINOUS LIGHT ENGINE
+   =================================================== */
+
+.three-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(at 15% 15%, rgba(224, 231, 255, 0.75) 0%, transparent 55%),
+    radial-gradient(at 85% 10%, rgba(219, 234, 254, 0.7) 0%, transparent 50%),
+    radial-gradient(at 50% 85%, rgba(243, 232, 255, 0.6) 0%, transparent 60%),
+    radial-gradient(at 90% 85%, rgba(224, 242, 254, 0.5) 0%, transparent 50%),
+    #f8fafc;
+}
+
+.three-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ── Modern Architectural Grid ── */
+.video-scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* ── Subtle Light Vignette ── */
+.video-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 100px rgba(241, 245, 249, 0.8);
+  pointer-events: none;
+}
+
+/* ── Ambient Radial Core Glow ── */
+.video-ambient-glow {
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(99, 102, 241, 0.12) 0%,
+    rgba(14, 165, 233, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  animation: pulseGlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+/* ── Light Laser Sweep Beam ── */
+.video-radar-sweep {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(99, 102, 241, 0.08) 50%,
+    transparent
+  );
+  filter: blur(1px);
+  animation: scanlineSweep 16s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanlineSweep {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+/* ── VFX Controller Floating Pill ── */
+.vfx-controller {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99;
+  pointer-events: auto;
+  font-family: var(--font-body, system-ui);
+}
+
+.vfx-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+  padding: 9px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vfx-toggle-btn:hover {
+  background: #ffffff;
+  border-color: var(--gold, #4f46e5);
+  color: var(--gold, #4f46e5);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -4px rgba(79, 70, 229, 0.2);
+}
+
+.vfx-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseBeacon 2s ease-in-out infinite;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.vfx-drawer {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  width: 260px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  backdrop-filter: blur(24px);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  animation: drawerSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes drawerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.vfx-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.vfx-pause-btn {
+  background: transparent;
+  border: none;
+  color: var(--gold, #4f46e5);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.vfx-pause-btn:hover {
+  background: rgba(79, 70, 229, 0.08);
+}
+
+.vfx-mode-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vfx-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 12px;
+  padding: 9px 12px;
+  color: #0f172a;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.vfx-mode-btn:hover {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(79, 70, 229, 0.3);
+  transform: translateX(2px);
+}
+
+.vfx-mode-btn.active {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: var(--gold, #4f46e5);
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.15);
+}
+
+.vfx-icon {
+  font-size: 1.3rem;
+}
+
+.vfx-mode-btn strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.vfx-mode-btn small {
+  display: block;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+@media (max-width: 640px) {
+  .vfx-controller {
+    bottom: 16px;
+    right: 16px;
+  }
+}
