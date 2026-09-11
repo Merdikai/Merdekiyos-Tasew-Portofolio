@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import confetti from "canvas-confetti";
 import { sounds } from "../utils/soundEffects";
 import "./ReviewModal.css";
@@ -68,26 +68,30 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  const handleClose = useCallback(() => {
+    setIsSuccess(false);
+    setError(null);
+    onClose();
+  }, [onClose]);
+
   // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
-        onClose();
+        handleClose();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen, handleClose]);
 
   // Prevent background scrolling when open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    if (!isOpen) return;
+    document.body.style.overflow = "hidden";
+    return () => {
       document.body.style.overflow = "";
-      setIsSuccess(false);
-      setError(null);
-    }
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -172,14 +176,14 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({
 
     setIsSuccess(true);
     setTimeout(() => {
-      onClose();
+      handleClose();
     }, 2200);
   };
 
   return (
-    <div className="review-modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
+    <div className="review-modal-overlay" onClick={handleClose} role="dialog" aria-modal="true">
       <div className="review-modal-card" onClick={(e) => e.stopPropagation()}>
-        <button className="review-modal-close" onClick={onClose} aria-label="Close modal">
+        <button className="review-modal-close" onClick={handleClose} aria-label="Close modal">
           ✕
         </button>
 

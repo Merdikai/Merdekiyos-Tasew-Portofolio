@@ -4,7 +4,8 @@ import "./Landing.css";
 import ThreeBackground from "../components/ThreeBackground";
 import TiltCard from "../components/TiltCard";
 import TerminalDrawer from "../components/TerminalDrawer";
-import ThemeSwitcher, { toggleThemeMode, type ThemeMode } from "../components/ThemeSwitcher";
+import ThemeSwitcher from "../components/ThemeSwitcher";
+import { toggleThemeMode, type ThemeMode } from "../utils/theme";
 import { sounds } from "../utils/soundEffects";
 
 const Landing: React.FC = () => {

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import { sounds } from "../utils/soundEffects";
-import ThemeSwitcher, { toggleThemeMode, type ThemeMode } from "./ThemeSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
+import { toggleThemeMode, type ThemeMode } from "../utils/theme";
 
 interface HeaderProps {
   logoText?: string;

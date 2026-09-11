@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ThreeBackground from "../components/ThreeBackground";
@@ -447,7 +447,7 @@ const Portfolio: React.FC = () => {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed)) {
           const cleaned = parsed.filter(
-            (r: any) =>
+            (r: ClientReviewSubmission) =>
               r.name !== "Dr. Dawit Haile" &&
               r.name !== "Michael Tadesse" &&
               r.name !== "Dr. Almaz Kebede" &&
@@ -524,19 +524,6 @@ const Portfolio: React.FC = () => {
     return projectsData.map((p) => p.title);
   }, []);
 
-  const sectionRefs = {
-    hero: useRef<HTMLElement>(null),
-    profile: useRef<HTMLElement>(null),
-    services: useRef<HTMLElement>(null),
-    skills: useRef<HTMLElement>(null),
-    experience: useRef<HTMLElement>(null),
-    projects: useRef<HTMLElement>(null),
-    testimonials: useRef<HTMLElement>(null),
-    education: useRef<HTMLElement>(null),
-    certs: useRef<HTMLElement>(null),
-    contact: useRef<HTMLElement>(null),
-  };
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -545,23 +532,22 @@ const Portfolio: React.FC = () => {
         }),
       { threshold: 0.1 }
     );
-    Object.values(sectionRefs).forEach((r) => r.current && observer.observe(r.current));
-    return () =>
-      Object.values(sectionRefs).forEach((r) => r.current && observer.unobserve(r.current));
+    const elements = document.querySelectorAll(".reveal");
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!sectionRefs.skills.current) return;
+    const skillsEl = document.getElementById("skills");
+    if (!skillsEl) return;
     const obs = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) setAnimateSkills(true);
       },
       { threshold: 0.2 }
     );
-    obs.observe(sectionRefs.skills.current);
-    return () => {
-      if (sectionRefs.skills.current) obs.unobserve(sectionRefs.skills.current);
-    };
+    obs.observe(skillsEl);
+    return () => obs.disconnect();
   }, []);
 
   const handleCopy = (text: string, key: string) => {
@@ -599,7 +585,7 @@ const Portfolio: React.FC = () => {
 
       <main className="main-content">
         {/* ── HERO SECTION ── */}
-        <section ref={sectionRefs.hero} id="home" className="hero-section reveal">
+        <section id="home" className="hero-section reveal">
           <div className="hero-inner">
             <div className="hero-badge">
               <span className="hero-badge-dot" />
@@ -679,7 +665,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── PROFILE SECTION ── */}
-        <section ref={sectionRefs.profile} id="profile" className="section reveal">
+        <section id="profile" className="section reveal">
           <div className="section-header">
             <span className="section-label">Engineering Philosophy</span>
             <h2 className="section-title">Developer <em>Profile</em></h2>
@@ -713,7 +699,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── SERVICES SECTION ── */}
-        <section ref={sectionRefs.services} id="services" className="section reveal">
+        <section id="services" className="section reveal">
           <div className="section-header">
             <span className="section-label">Specializations</span>
             <h2 className="section-title">My <em>Services</em></h2>
@@ -779,7 +765,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── TECHNICAL SKILLS SECTION ── */}
-        <section ref={sectionRefs.skills} id="skills" className="section reveal">
+        <section id="skills" className="section reveal">
           <div className="section-header">
             <span className="section-label">Core Capabilities</span>
             <h2 className="section-title">Technical <em>Stack</em></h2>
@@ -828,7 +814,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── PROFESSIONAL PROJECTS SECTION ── */}
-        <section ref={sectionRefs.projects} id="projects" className="section reveal">
+        <section id="projects" className="section reveal">
           <div className="section-header">
             <span className="section-label">Portfolio Portfolio</span>
             <h2 className="section-title">Selected <em>Projects</em></h2>
@@ -1008,7 +994,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── CLIENT TESTIMONIALS SECTION ── */}
-        <section ref={sectionRefs.testimonials} id="testimonials" className="section reveal">
+        <section id="testimonials" className="section reveal">
           <div className="section-header-flex">
             <div className="section-header">
               <span className="section-label">Verified Proof</span>
@@ -1134,7 +1120,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── PROFESSIONAL EXPERIENCE TIMELINE ── */}
-        <section ref={sectionRefs.experience} id="experience" className="section reveal">
+        <section id="experience" className="section reveal">
           <div className="section-header">
             <span className="section-label">Track Record</span>
             <h2 className="section-title">Professional <em>Experience</em></h2>
@@ -1201,7 +1187,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── EDUCATION SECTION ── */}
-        <section ref={sectionRefs.education} id="education" className="section reveal">
+        <section id="education" className="section reveal">
           <div className="section-header">
             <span className="section-label">Academic Foundations</span>
             <h2 className="section-title">Education</h2>
@@ -1258,7 +1244,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── CERTIFICATES SECTION ── */}
-        <section ref={sectionRefs.certs} id="certificates" className="section reveal">
+        <section id="certificates" className="section reveal">
           <div className="section-header">
             <span className="section-label">Verified Credentials</span>
             <h2 className="section-title">Certifications</h2>
@@ -1294,7 +1280,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* ── CONTACT & DIRECT MESSAGE SECTION ── */}
-        <section ref={sectionRefs.contact} id="contact" className="section reveal">
+        <section id="contact" className="section reveal">
           <div className="section-header">
             <span className="section-label">Let's Connect</span>
             <h2 className="section-title">Get In <em>Touch</em></h2>

@@ -280,7 +280,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
 
   // Main animation render loop
   useEffect(() => {
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animFrameIdRef.current = requestAnimationFrame(animate);
