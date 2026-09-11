@@ -46,9 +46,9 @@
 <br />
 
 <div align="center">
-  <h3>🖼️ Interactive Project Gallery & Glassmorphism Modal</h3>
-  <p>Hover preview card states and a full-featured multi-screenshot modal with blurred backdrop filters and keyboard controls.</p>
-  <img src="public/images/previews/project-gallery-preview.png" alt="Glassmorphic Project Photo Gallery Modal" width="95%"/>
+  <h3>🖼️ Interactive Photo Thumbnail Hover Preview</h3>
+  <p>Hovering over any project's <strong>Photos</strong> button instantly reveals an authentic floating mini screenshot snapshot of the application with quick slide controls.</p>
+  <img src="public/images/previews/project-hover-preview.png" alt="Project Card Photo Hover Preview" width="95%"/>
 </div>
 
 ---
